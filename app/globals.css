@@ -1,0 +1,13 @@
+body {
+  font-family: "Vazirmatn", "Tahoma", sans-serif;
+  background: linear-gradient(135deg, #1a1a1a 0%, #ffd600 100%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #222;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffd600;
+  border-radius: 8px;
+}
