@@ -1,13 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  font-family: "Vazirmatn", "Tahoma", sans-serif;
-  background: linear-gradient(135deg, #1a1a1a 0%, #ffd600 100%);
+  font-family: 'Vazirmatn', sans-serif;
+  direction: rtl;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  background: #222;
-}
-::-webkit-scrollbar-thumb {
-  background: #ffd600;
-  border-radius: 8px;
-}
+/* فونت وزیر (اگر خواستی اضافه کنی) */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
