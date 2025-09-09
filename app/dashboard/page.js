@@ -1,10 +1,27 @@
-export default function Dashboard() {
-  return (
-    <main className="container py-24">
-      <div className="card p-8">
-        <h1 className="text-2xl font-bold">داشبورد مشتری</h1>
-        <p className="mt-2 text-gray-600">سفارش‌ها، آدرس‌ها و علاقه‌مندی‌ها اینجا نمایش داده می‌شود.</p>
+"use client";
+
+import { signOut, useSession } from "next-auth/react";
+
+export default function DashboardPage() {
+  const { data: session } = useSession();
+
+  if (!session) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p>ابتدا باید وارد شوید 🚪</p>
       </div>
-    </main>
+    );
+  }
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-2xl font-bold">سلام {session.user?.email}</h1>
+      <button
+        onClick={() => signOut({ callbackUrl: "/" })}
+        className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+      >
+        خروج
+      </button>
+    </div>
   );
 }
