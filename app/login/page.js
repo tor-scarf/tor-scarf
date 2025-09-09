@@ -1,11 +1,49 @@
-export default function Login() {
+"use client";
+
+import { signIn } from "next-auth/react";
+import { useState } from "react";
+
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await signIn("credentials", {
+      email,
+      password,
+      callbackUrl: "/", // بعد از ورود بره صفحه اصلی
+    });
+  };
+
   return (
-    <main className="container py-24">
-      <div className="card p-8 max-w-md mx-auto text-center">
-        <h1 className="text-2xl font-bold mb-4">ورود</h1>
-        <p>سیستم احراز هویت در نسخه‌ی 3D دمو حذف شده است. نسخه کامل قبلی شما همچنان auth دارد.</p>
-        <a href="/" className="btn btn-primary mt-6">بازگشت به خانه</a>
-      </div>
-    </main>
+    <div className="flex items-center justify-center min-h-screen">
+      <form
+        onSubmit={handleSubmit}
+        className="p-6 bg-white rounded-2xl shadow-lg w-80 space-y-4"
+      >
+        <h1 className="text-xl font-bold text-center">ورود</h1>
+        <input
+          type="email"
+          placeholder="ایمیل"
+          className="w-full border p-2 rounded"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="رمز عبور"
+          className="w-full border p-2 rounded"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="w-full bg-pink-500 text-white py-2 rounded"
+        >
+          ورود
+        </button>
+      </form>
+    </div>
   );
 }
