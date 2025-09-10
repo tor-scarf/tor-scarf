@@ -1,4 +1,4 @@
-// ⬇️ این خط رو بالای فایل اضافه کن
+
 export const dynamic = "force-dynamic";
 
 "use client";
