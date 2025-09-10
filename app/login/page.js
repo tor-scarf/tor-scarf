@@ -1,3 +1,6 @@
+// ⬇️ این خط رو بالای فایل اضافه کن
+export const dynamic = "force-dynamic";
+
 "use client";
 
 import { signIn } from "next-auth/react";
@@ -17,13 +20,13 @@ export default function LoginPage() {
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: false, // اینو false بذار که خودمون کنترل کنیم
+      redirect: false,
     });
 
     if (res.error) {
       setError("ایمیل یا رمز عبور اشتباهه ❌");
     } else {
-      router.push("/dashboard"); // بعد از لاگین برو داشبورد
+      router.push("/dashboard");
     }
   };
 
